@@ -30,5 +30,9 @@ void AFirstPersonPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
+	{
+		
+	}
 }
 

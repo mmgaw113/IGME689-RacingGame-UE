@@ -11,6 +11,9 @@
 #include "InputMappingContext.h"
 #include "FirstPersonPlayerCharacter.generated.h"
 
+class UArcGISLocationComponent;
+class UArcGISCameraComponent;
+
 UCLASS()
 class IGME689_API AFirstPersonPlayerCharacter : public ACharacter
 {
@@ -32,6 +35,12 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
+	//void Move(const FInputActionValue& Value);
+	//void Look(const FInputActionValue& Value);
+
+	UArcGISCameraComponent* cameraComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess))
+	UArcGISLocationComponent* locationComponent;
 	UPROPERTY(VisibleAnywhere, meta=(AllowPrivateAccess))
 	UInputMappingContext* mappingContext = LoadObject<UInputMappingContext>(nullptr, TEXT("/Script/EnhancedInput.InputMappingContext'/Game/Scenes/Input/IMC_FirstPerson.IMC_FirstPerson'"));
 	UPROPERTY(EditAnywhere, meta=(AllowPrivateAccess))
